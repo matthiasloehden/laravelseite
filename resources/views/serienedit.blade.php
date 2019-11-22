@@ -2,7 +2,7 @@
 @section('content')
 
     <section class="container">
-        <div><h1>Serie hinzufügen</h1>
+        <div><h1>Serie bearbeiten</h1>
             <form action="/serien/edit/{{$serien->id}}"  method="post">
                 @csrf
                 @method('put')
