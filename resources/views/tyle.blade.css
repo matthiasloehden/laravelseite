@@ -1,0 +1,148 @@
+embed {
+    display: block;
+    width: 800px;
+    height: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+h3 {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    font-family: "DIN Alternate";
+    display: inline-block;
+    margin: auto;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+nav li.dropdown {
+    display: inline-block;
+    width: 200px
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #dddddd;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: white;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+a.hobbybutton:link, a.hobbybutton:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "DIN Alternate";
+    border-radius: 80px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr {
+    border-bottom: 1px solid #ddd
+}
+th, td {
+    text-align: left;
+    padding: 10px;
+    color: white;
+    border-right: 1px #ddd solid;
+    border-left: 1px #ddd solid;
+    font-family: Arial;
+}
+th {
+    text-align: center;
+    font-family: "Arial Black";
+}
+td {
+    padding-left: 50px;
+}
+body {
+    background-image: url("background.jpg");
+}
+
+section div {
+    color:white;
+    margin: 10%;
+    border-top: dimgray solid 5px;
+}
+img {
+    height: 120px;
+    width: 213px;
+    float: left;
+    margin-right: 20px;
+}
+a:link {
+    text-decoration: none;
+    color:white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+footer {
+    background-image:url("footer.jpg");
+    width: 100%;
+    margin-bottom: -500px;
+    margin-left: -10px;
+    margin-right: -20px;
+}
+footer div {
+    border-top: none;
+    color: slategrey;
+}
