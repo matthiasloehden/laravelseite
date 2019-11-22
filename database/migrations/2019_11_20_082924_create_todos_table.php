@@ -22,10 +22,7 @@ class CreateTodosTable extends Migration
             $table->timestamp("abgabetermin")->nullable();
             $table->timestamp("eingereicht")->useCurrent();
 
-            $table->foreign("user_id")
-                ->references("id")
-                ->on("users")
-                ->onDelete("cascade");
+
         });
     }
 

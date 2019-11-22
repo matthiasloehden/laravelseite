@@ -6,9 +6,13 @@
             <form action="/todo"  method="post">
                 @csrf
 
-                <label>Aufgabe</label><br><input type="text"name="aufgabe" required><br>
-                <label>Beschreibung</label><br><textarea  name="beschreibung" required></textarea><br>
-                <label>Abgabetermin</label><br><input type="date" name="abgabetermin"><br><br>
+                <label>Aufgabe</label>
+                <br><input type="text"name="aufgabe" required><br>
+                <label>Beschreibung</label><br>
+                <textarea  name="beschreibung" required></textarea><br>
+                <label>Abgabetermin</label><br>
+                <input type="date" name="abgabetermin">
+                <br><br>
                 <input type="submit" value="Speichern">
             </form>
             <br>
@@ -27,9 +31,10 @@
                 <div>Abgabetermin: {{substr($t->abgabetermin, 0, 10)}}</div>
                 <div><form action="{{route("todo.edit", $t)}}"><input type="submit" value="Bearbeiten"></form>
                      <form action="{{route("todo.delete", $t)}}"><input type="submit" value="Löschen"></form>
+                </div>
             </div>
         @endforeach
         <div></div>
-    </section>
+            </section>
 
 @endsection

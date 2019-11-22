@@ -15,7 +15,16 @@ class CreateSeriensTable extends Migration
     {
         Schema::create('seriens', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger("user_id");
+            $table->string("titel");
+            $table->text("beschreibung");
             $table->timestamps();
+
+
+            $table->foreign("user_id")
+                ->references("id")
+                ->on("users")
+                ->onDelete("cascade");
         });
     }
 

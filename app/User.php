@@ -40,4 +40,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(todo::class);
     }
+
+    public function serien()
+    {
+        return $this->hasMany(serien::class);
+    }
+
+
 }

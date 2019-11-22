@@ -2,47 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\serien;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tag;
 
 class SerienController extends Controller
 {
     //
     public function index()
     {
-        $serien = serien::all();
-        return view('serien', [
-            "serien" => $serien,
-        ]);
+        if(request("tag"))
+        {
+            $serien = \App\tag::where("name", request("tag"))->firstOrFail()->serien;
+        }else {
+            $serien = serien::all();
+        }
+            return view('serien', ["serien" => $serien]);
+
     }
+    public function create()
+    {
+        return view("serienadd", ["tags" => \App\tag::all()]);
+    }
+
     public function store()
     {
-        todo::create($this->validateTodos());
-        return redirect(todo::path());
+        $this->validateSerien();
+        $serie = new serien(\request(["titel", "beschreibung"]));
+        $serie->user_id = 1;
+        $serie->save();
+        $serie->tags()->attach(request("tags"));
+
+        return redirect(serien::path());
     }
-    public function destroy(todo $todo){
-        $todo->delete();
-        return redirect(todo::path());
+    public function destroy(serien $serien)
+    {
+        $serien->delete();
+        return redirect(serien::path());
     }
 
-    public function edit(todo $todo)
+    public function edit(serien $serien)
     {
-        return view("todoedit",compact("todo"));
+        return view("serienedit",compact("serien"), ["tags" => \App\tag::all()]);
     }
 
-    public function update(todo $todo)
+    public function update(serien $serien)
     {
-        $todo->update($this->validateTodos());
-        return redirect(todo::path());
+        $serien->update($this->validateSerien());;
+        return redirect(serien::path());
     }
-    public function confirmdelete(todo $todo)
+
+    protected function validateSerien()
     {
-        return view("tododelete",compact("todo"));
-    }
-    protected function validateTodos(){
         return request()->validate([
-            "aufgabe" => ["required", "min:3"],
+            "titel" => ["required", "min:3"],
             "beschreibung" => "required",
-            "abgabetermin"
+            "tag",
+            //"user_id" => "required",
+            "tags" => "exists:tags,id"
         ]);
     }
 
