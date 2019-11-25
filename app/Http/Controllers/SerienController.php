@@ -28,8 +28,8 @@ class SerienController extends Controller
     public function store()
     {
         $this->validateSerien();
-        $serie = new serien(\request(["titel", "beschreibung"]));
-        $serie->user_id = 1;
+        $serie = new serien(request(["titel", "beschreibung"]));
+        $serie->user_id = 1;//auth()->id();
         $serie->save();
         $serie->tags()->attach(request("tags"));
 
@@ -48,7 +48,16 @@ class SerienController extends Controller
 
     public function update(serien $serien)
     {
-        $serien->update($this->validateSerien());;
+        $this->validateSerien();
+        $serie = new serien(request(["titel", "beschreibung"]));
+        $serie->user_id = auth()->id();
+        $serien->update($serie->getAttributes());
+
+        if (\request("tags")){
+            $serien->tags()->sync(request("tags"));
+        }
+
+        //$serien->update($this->validateSerien());
         return redirect(serien::path());
     }
 
@@ -57,10 +66,16 @@ class SerienController extends Controller
         return request()->validate([
             "titel" => ["required", "min:3"],
             "beschreibung" => "required",
-            "tag",
-            //"user_id" => "required",
             "tags" => "exists:tags,id"
         ]);
+    }
+    public function search()
+    {
+        $q = \request("q");
+        $search = serien::where("titel","LIKE","%".$q."%")->orWhere("beschreibung", "LIKE","%". $q . "%")->get();
+
+        $serien = serien::all();
+        return view('serien', compact("search","q","serien"));
     }
 
 }

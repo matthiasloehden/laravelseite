@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class serien extends Model
 {
+    //protected $fillable = ['id, user_id, titel, beschreibung, updated_at'];
     protected $guarded = [];
 
     static public function path()

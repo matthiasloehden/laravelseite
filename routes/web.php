@@ -19,6 +19,8 @@ Route::get('/test/{etwas}', 'newcontroller@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users', 'HomeController@show');
+Route::post('/users', 'HomeController@search');
 
 Route::get('/todo', 'todocontroller@index')->name("todo");
 Route::post('/todo', 'todocontroller@store');
@@ -28,9 +30,11 @@ Route::get('/todo/delete/{todo}', 'todocontroller@destroy')->name("todo.delete")
 //Route::post('/todo/delete/{todo}/delete', 'todocontroller@destroy');
 
 Route::get("/serien", "SerienController@index")->name("serien");
-Route::get("/serien/add", "SerienController@create")->name("serien.add");
+Route::get("/serien/add", "SerienController@create")->name("serien.add")->middleware("auth");
 Route::post("/serien/add", "SerienController@store");
 Route::get("/serien/edit/{serien}", "SerienController@edit")->name("serien.edit");
 Route::put("/serien/edit/{serien}", "SerienController@update");
 Route::get("/serien/edit/{serien}/delete", "SerienController@destroy")->name("serien.delete");
+Route::post("/serien/search", "SerienController@search");
+Route::get("/serien/search", "SerienController@index")->name("serien.search");
 

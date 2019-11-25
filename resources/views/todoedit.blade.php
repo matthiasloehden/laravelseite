@@ -13,7 +13,7 @@
             <textarea  name="beschreibung" required >{{$todo->beschreibung}}</textarea><br>
             <label>Abgabetermin</label><br>
             <input type="date" name="abgabetermin"><br><br>
-            <input type="submit" value="Speichern">
+            <input type="submit" class="btn btn-dark" value="Speichern">
         </form>
         <br>
         @if($errors->has("aufgabe"))

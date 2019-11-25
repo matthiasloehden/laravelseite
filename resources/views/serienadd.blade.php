@@ -3,30 +3,34 @@
 
 <section class="container">
     <div><h1>Serie hinzufügen</h1>
-        <form action="/serien/add"  method="post">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="/serien/add"  method="post" class="form-group">
                 @csrf
-
-
-            <label>Aufgabe</label><br>
+            <label>Titel</label><br>
             <input type="text"name="titel" required ><br>
             <label>Beschreibung</label><br>
-            <textarea  name="beschreibung" required ></textarea><br>
+            <textarea  name="beschreibung" required class="form-control"></textarea><br>
             <label>Tags</label><br>
-            <select name="tags[]" multiple>
+            <select name="tags[]" class="custom-select" multiple>
                 @foreach($tags as $tag)
                     <option value="{{$tag->id}}">{{$tag->name}}</option>
                 @endforeach
             </select>
 
             <br><br>
-            <input type="submit" value="Speichern">
+            <input type="submit" value="Speichern" class="btn btn-dark">
         </form>
-        //<form> action="{{route("serien.delete)}}</form>
         <br>
 
-        @if($errors->has("titel"))
-            <p>Der Titel muss mindetens 3 Buchstaben haben.</p>
-        @endif
+
         <br><br>
     </div>
 
