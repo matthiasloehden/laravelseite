@@ -11,15 +11,15 @@ class SerienController extends Controller
     //
     public function index()
     {
-        if(request("tag"))
-        {
+        if (request("tag")) {
             $serien = \App\tag::where("name", request("tag"))->firstOrFail()->serien;
-        }else {
+        } else {
             $serien = serien::all();
         }
-            return view('serien', ["serien" => $serien]);
+        return view('serien', ["serien" => $serien]);
 
     }
+
     public function create()
     {
         return view("serienadd", ["tags" => \App\tag::all()]);
@@ -29,12 +29,13 @@ class SerienController extends Controller
     {
         $this->validateSerien();
         $serie = new serien(request(["titel", "beschreibung"]));
-        $serie->user_id = 1;//auth()->id();
+        $serie->user_id = auth()->id();
         $serie->save();
         $serie->tags()->attach(request("tags"));
 
         return redirect(serien::path());
     }
+
     public function destroy(serien $serien)
     {
         $serien->delete();
@@ -43,7 +44,7 @@ class SerienController extends Controller
 
     public function edit(serien $serien)
     {
-        return view("serienedit",compact("serien"), ["tags" => \App\tag::all()]);
+        return view("serienedit", compact("serien"), ["tags" => \App\tag::all()]);
     }
 
     public function update(serien $serien)
@@ -53,7 +54,7 @@ class SerienController extends Controller
         $serie->user_id = auth()->id();
         $serien->update($serie->getAttributes());
 
-        if (\request("tags")){
+        if (\request("tags")) {
             $serien->tags()->sync(request("tags"));
         }
 
@@ -69,13 +70,14 @@ class SerienController extends Controller
             "tags" => "exists:tags,id"
         ]);
     }
+
     public function search()
     {
         $q = \request("q");
-        $search = serien::where("titel","LIKE","%".$q."%")->orWhere("beschreibung", "LIKE","%". $q . "%")->get();
+        $search = serien::where("titel", "LIKE", "%" . $q . "%")->orWhere("beschreibung", "LIKE", "%" . $q . "%")->get();
 
         $serien = serien::all();
-        return view('serien', compact("search","q","serien"));
+        return view('serien', compact("search", "q", "serien"));
     }
 
 }

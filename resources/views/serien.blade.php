@@ -25,7 +25,7 @@
 
 
         <h1>{{request("tag")}}
-        Serien</h1>
+            Serien</h1>
         <form action="{{route("serien.search")}}" method="POST" class="form-control">
             @csrf
             <input type="text" class="" name="q" placeholder="Serien durchsuchen">
@@ -39,13 +39,16 @@
                 <div>{{$t->beschreibung}}</div>
                 <div><small><i>hinzugefügt von: {{\App\serien::idToName($t->user_id)}}</i></small></div>
                 @foreach($t->tags as $tag)
-                    <a href="{{route("serien",["tag" => $tag->name])}}"><button class="btn-dark btn-sm">{{$tag->name}}</button></a>
+                    <a href="{{route("serien",["tag" => $tag->name])}}">
+                        <button class="btn-dark btn-sm">{{$tag->name}}</button>
+                    </a>
                 @endforeach
             </div>
         @empty
             <h1>Keine Serien mit dem Tag.</h1>
         @endforelse
-        <br><div><a href="{{route("serien.add")}}" class="btn btn-dark">Serie hinzufügen</a></div>
+        <br>
+        <div><a href="{{route("serien.add")}}" class="btn btn-dark">Serie hinzufügen</a></div>
         <div></div>
     </section>
 

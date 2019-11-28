@@ -3,13 +3,13 @@
 
     <section class="container">
         <div><h1>TODO LISTE</h1>
-            <form action="/todo"  method="post">
+            <form action="/todo" method="post">
                 @csrf
 
                 <label>Aufgabe</label>
-                <br><input type="text"name="aufgabe" required><br>
+                <br><input type="text" name="aufgabe" required><br>
                 <label>Beschreibung</label><br>
-                <textarea  name="beschreibung" required></textarea><br>
+                <textarea name="beschreibung" required></textarea><br>
                 <label>Abgabetermin</label><br>
                 <input type="date" name="abgabetermin">
                 <br><br>
@@ -29,12 +29,15 @@
                 <div>{{$t->beschreibung}}</div>
                 <div>Eingereicht: {{$t->eingereicht}}</div>
                 <div>Abgabetermin: {{substr($t->abgabetermin, 0, 10)}}</div>
-                <div><form action="{{route("todo.edit", $t)}}"><input type="submit" class="btn btn-dark" value="Bearbeiten"></form>
-                     <form action="{{route("todo.delete", $t)}}"><input type="submit" class="btn btn-dark" value="Löschen"></form>
+                <div>
+                    <form action="{{route("todo.edit", $t)}}"><input type="submit" class="btn btn-dark"
+                                                                     value="Bearbeiten"></form>
+                    <form action="{{route("todo.delete", $t)}}"><input type="submit" class="btn btn-dark"
+                                                                       value="Löschen"></form>
                 </div>
             </div>
         @endforeach
         <div></div>
-            </section>
+    </section>
 
 @endsection

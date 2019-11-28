@@ -27,14 +27,15 @@
 
 
             <h1>Registrierte Benutzer</h1>
-                <form action="users" method="POST" class="form-control">
-                    @csrf
-                    <input type="text" class="" name="q" placeholder="Benutzer durchsuchen">
-                    <input type="submit" value="Suchen" class="btn btn-secondary">
-                </form>
+            <form action="users" method="POST" class="form-control">
+                @csrf
+                <input type="text" class="" name="q" placeholder="Benutzer durchsuchen">
+                <input type="submit" value="Suchen" class="btn btn-secondary">
+            </form>
             @forelse ($users as $t)
 
-                <br><div>
+                <br>
+                <div>
 
 
                     <h3>{{$t->name}}</h3>

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 Route::get('/test/{etwas}', 'newcontroller@show');
 
 Auth::routes();
@@ -37,4 +35,13 @@ Route::put("/serien/edit/{serien}", "SerienController@update");
 Route::get("/serien/edit/{serien}/delete", "SerienController@destroy")->name("serien.delete");
 Route::post("/serien/search", "SerienController@search");
 Route::get("/serien/search", "SerienController@index")->name("serien.search");
+
+Route::get("/filme", "FilmController@index");
+Route::get("/filme/add", "FilmController@create");
+Route::get("/filme/edit/{film}", "FilmController@edit");
+Route::get("/filme/edit/{film}/delete", "FilmController@destroy");
+
+Route::post("/filme/add", "FilmController@store");
+Route::put("/filme/edit/{film}", "FilmController@update");
+
 

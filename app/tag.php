@@ -12,4 +12,7 @@ class tag extends Model
     {
         return $this->belongsToMany(serien::class);
     }
+    public function film(){
+        return $this->belongsToMany(film::class);
+    }
 }

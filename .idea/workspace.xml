@@ -2,21 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b831cc1c-24dd-4c84-b7fd-97acec857cd0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/bs3layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/users.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/film.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/FilmFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_11_28_091433_create_films_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/film.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/todo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SerienController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SerienController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/serien.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/serien.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/serien.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/serien.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/serienadd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/serienadd.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/serienedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/serienedit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/todo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/todo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/todoedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/todoedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +43,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -144,8 +150,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -184,7 +191,9 @@
       <workItem from="1574322912301" duration="15597000" />
       <workItem from="1574409583373" duration="21182000" />
       <workItem from="1574438119697" duration="289000" />
-      <workItem from="1574668821165" duration="22375000" />
+      <workItem from="1574668821165" duration="22545000" />
+      <workItem from="1574841641433" duration="3558000" />
+      <workItem from="1574932198034" duration="8710000" />
     </task>
     <servers />
   </component>
